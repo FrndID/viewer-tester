@@ -1,0 +1,45 @@
+{
+  "solar_system": {
+    "star": {
+      "id": "sun",
+      "name": "Sun",
+      "skin": { "type": "svg", "src": "sun.svg" },
+      "size": 60,
+      "visual_scale": 1
+    },
+    "planets": [
+      {
+        "id": "earth",
+        "name": "Earth",
+        "order": 3,
+        "type": "terrestrial",
+        "skin": { "type": "svg", "src": "earth.svg" },
+        "size": 24,
+        "visual_scale": 1,
+        "speed": 10
+      },
+      {
+        "id": "jupiter",
+        "name": "Jupiter",
+        "order": 6,
+        "type": "gas_giant",
+        "skin": { "type": "svg", "src": "jupiter.svg" },
+        "size": 45,
+        "visual_scale": 1,
+        "speed": 25
+      }
+    ],
+    "satellites": [
+      {
+        "id": "moon",
+        "planet_id": "earth",
+        "name": "Moon",
+        "order": 1,
+        "skin": { "type": "svg", "src": "moon.svg" },
+        "size": 8,
+        "visual_scale": 1,
+        "speed": 3
+      }
+    ]
+  }
+}
