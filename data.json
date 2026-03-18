@@ -1,45 +1,42 @@
-{
-  "solar_system": {
-    "star": {
-      "id": "sun",
-      "name": "Sun",
-      "skin": { "type": "svg", "src": "sun.svg" },
-      "size": 60,
-      "visual_scale": 1
-    },
-    "planets": [
-      {
-        "id": "earth",
-        "name": "Earth",
-        "order": 3,
-        "type": "terrestrial",
-        "skin": { "type": "svg", "src": "earth.svg" },
-        "size": 24,
-        "visual_scale": 1,
-        "speed": 10
-      },
-      {
-        "id": "jupiter",
-        "name": "Jupiter",
-        "order": 6,
-        "type": "gas_giant",
-        "skin": { "type": "svg", "src": "jupiter.svg" },
-        "size": 45,
-        "visual_scale": 1,
-        "speed": 25
-      }
-    ],
-    "satellites": [
-      {
-        "id": "moon",
-        "planet_id": "earth",
-        "name": "Moon",
-        "order": 1,
-        "skin": { "type": "svg", "src": "moon.svg" },
-        "size": 8,
-        "visual_scale": 1,
-        "speed": 3
-      }
+[
+  {
+    "id": "sun",
+    "name": "Solaria",
+    "type": "star",
+    "color": "#ffcc00",
+    "dist": 0,
+    "size": 60,
+    "speed_sec": 0,
+    "skin": { "type": "svg", "src": "sun.svg" },
+    "visual_scale": 1,
+    "desc": "Bintang pusat tata surya Arcadia."
+  },
+  {
+    "id": "arcadia",
+    "name": "Arcadia",
+    "type": "terrestrial",
+    "color": "#00bcd4",
+    "dist": 160,
+    "size": 24,
+    "speed_sec": 15,
+    "skin": { "type": "svg", "src": "earth.svg" },
+    "visual_scale": 1,
+    "desc": "Planet biru kaya air dan kehidupan.",
+    "moons": [
+      { "id": "lunae", "name": "Lunae", "size": 8, "dist": 30, "speed_sec": 3, "skin": { "type": "svg", "src": "moon.svg" } }
     ]
+  },
+  {
+    "id": "vorenth",
+    "name": "Vorenth",
+    "type": "terrestrial",
+    "color": "#4caf50",
+    "dist": 280,
+    "size": 30,
+    "speed_sec": 25,
+    "skin": { "type": "svg", "src": "jupiter.svg" },
+    "visual_scale": 1,
+    "desc": "Planet hijau dengan medan energi kuat.",
+    "moons": []
   }
-}
+]
