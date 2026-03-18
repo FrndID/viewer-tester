@@ -1,29 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System Visualization</title>
+    <title>Tata Surya Arcadia (SVG DOM)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Konfigurasi Tailwind Kustom
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        arcadia: '#9c27b0', // Warna ungu khas aslimu
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-950 overflow-hidden text-white w-screen h-screen relative flex items-center justify-center">
+<body class="bg-gray-950 text-white w-screen h-screen overflow-hidden relative">
 
-    <div class="absolute top-4 left-4 z-50 flex gap-4 items-center bg-gray-900/80 p-4 rounded-xl border border-gray-700 backdrop-blur-sm">
-        <button id="btn-toggle" class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg font-semibold transition">⏸ Pause</button>
-        <div class="flex items-center gap-2">
-            <label for="zoom" class="text-sm">Zoom</label>
-            <input type="range" id="zoom" min="0.3" max="2" step="0.1" value="1" class="cursor-pointer">
+    <div class="absolute top-0 left-0 w-full z-50 p-4 flex justify-between items-start pointer-events-none">
+        <div class="flex gap-2 flex-wrap pointer-events-auto">
+            <button onclick="clearFocus()" class="bg-arcadia hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold shadow-lg transition flex items-center gap-2">
+                <i class="fas fa-bullseye"></i> Lepas Fokus
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-2 items-end pointer-events-auto">
+            <div class="bg-gray-900/80 backdrop-blur-sm p-3 rounded-xl border border-gray-700 shadow-xl flex items-center gap-3">
+                <label for="speedControl" class="text-sm font-bold text-gray-300">Cepat:</label>
+                <input type="range" id="speedControl" min="0.1" max="5" step="0.1" value="1" class="w-24 h-1.5 bg-purple-900 rounded-lg appearance-none cursor-pointer">
+            </div>
+            <div class="bg-gray-900/80 backdrop-blur-sm p-3 rounded-xl border border-gray-700 shadow-xl flex items-center gap-3">
+                <label for="zoom" class="text-sm font-bold text-gray-300">Zoom:</label>
+                <input type="range" id="zoom" min="0.2" max="3" step="0.1" value="1" class="w-24 h-1.5 bg-purple-900 rounded-lg appearance-none cursor-pointer">
+            </div>
         </div>
     </div>
 
-    <div id="tooltip" class="absolute hidden z-50 bg-gray-900 text-white px-3 py-1 rounded-md border border-gray-600 shadow-lg pointer-events-none transition-opacity">
-        <span id="tooltip-name" class="font-bold"></span>
-    </div>
+    <div id="planetInfo" class="absolute right-4 top-24 z-40 bg-gray-900/90 text-white p-5 rounded-xl border border-gray-700 shadow-2xl max-w-xs hidden transition-all duration-300 transform translate-x-10 opacity-0">
+        </div>
 
-    <div id="universe" class="relative w-full h-full flex items-center justify-center transition-transform duration-200">
-        <div id="solar-system" class="relative flex items-center justify-center">
+    <div id="universe" class="relative w-full h-full flex items-center justify-center transition-transform duration-200 ease-out">
+        <div class="stars"></div>
+        
+        <div id="solar-system" class="relative flex items-center justify-center pointer-events-none">
             </div>
     </div>
 
